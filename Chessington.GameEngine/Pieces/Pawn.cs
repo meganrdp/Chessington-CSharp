@@ -12,28 +12,57 @@ public class Pawn : Piece
 
     public override IEnumerable<Square> GetAvailableMoves(Board board)
     {
-        if (Player == Player.White)
-        {
-            var currentSquare = board.FindPiece(this);
+        var currentSquare = board.FindPiece(this);
+        int whiteMoves = 0;
+        int blackMoves = 0;
 
+        if (Player == Player.White && whiteMoves == 0)
+        {
+            var result = new List<Square>
+            {
+                Square.At(currentSquare.Row - 2, currentSquare.Col)
+
+            };
+
+            whiteMoves++;
+
+            return result;
+        }
+        else if (Player == Player.Black && blackMoves == 0)
+        {
+            var result = new List<Square>
+            {
+                Square.At(currentSquare.Row + 2, currentSquare.Col)
+
+            };
+
+            blackMoves++;
+
+            return result;
+        }
+        
+        else if (Player == Player.White && whiteMoves >= 1)
+        {
             var result = new List<Square>
             {
                 Square.At(currentSquare.Row - 1, currentSquare.Col)
             };
 
+            whiteMoves++;
+
             return result;
         }
         else
         {
-            var currentSquare = board.FindPiece(this);
-
             var result = new List<Square>
             {
                 Square.At(currentSquare.Row + 1, currentSquare.Col)
             };
 
-            return result; 
-        }
-        
+            blackMoves++;
+
+            return result;
+        }       
+      
     }
 }
