@@ -12,6 +12,22 @@ public class King : Piece
 
     public override IEnumerable<Square> GetAvailableMoves(Board board)
     {
-        return Enumerable.Empty<Square>();
+        var result = new List<Square>();
+        var currentSquare = board.FindPiece(this);
+        
+        if ((Player == Player.White) || (Player == Player.Black))
+        {
+            result.Add(Square.At(currentSquare.Row + 1, currentSquare.Col + 0));
+            result.Add(Square.At(currentSquare.Row + 0, currentSquare.Col + 1));
+            result.Add(Square.At(currentSquare.Row - 1, currentSquare.Col + 0));
+            result.Add(Square.At(currentSquare.Row + 0, currentSquare.Col - 1));
+            
+            result.Add(Square.At(currentSquare.Row + 1, currentSquare.Col + 1));
+            result.Add(Square.At(currentSquare.Row + 1, currentSquare.Col - 1));
+            result.Add(Square.At(currentSquare.Row - 1, currentSquare.Col + 1));
+            result.Add(Square.At(currentSquare.Row - 1, currentSquare.Col - 1));
+        }
+              
+        return result;  
     }
 }

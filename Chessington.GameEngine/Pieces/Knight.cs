@@ -27,7 +27,7 @@ public class Knight : Piece
             result.Add(Square.At(currentSquare.Row + 2, currentSquare.Col + 1));
             result.Add(Square.At(currentSquare.Row + 2, currentSquare.Col - 1));
         }
-               
+              
         return result;       
     }
 }
