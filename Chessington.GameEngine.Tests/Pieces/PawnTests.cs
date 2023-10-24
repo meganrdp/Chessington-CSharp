@@ -31,7 +31,7 @@ public class PawnTests
 
         moves.Should().Contain(Square.At(2, 0));
     }
-    
+ // Red 2   
     [Test]
     public void WhitePawns_WhichHaveNeverMoved_CanMoveTwoSquareUp()
     {
@@ -43,7 +43,7 @@ public class PawnTests
 
         moves.Should().Contain(Square.At(5, 5));
     }
-//Test 2
+
     [Test]
     public void BlackPawns_WhichHaveNeverMoved_CanMoveTwoSquareUp()
     {
