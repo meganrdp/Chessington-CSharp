@@ -15,7 +15,7 @@ public class Knight : Piece
         var result = new List<Square>();
         var currentSquare = board.FindPiece(this);
         
-        if (Player == Player.White) 
+        if ((Player == Player.White) || (Player == Player.Black))
         {
             result.Add(Square.At(currentSquare.Row - 1, currentSquare.Col - 2));
             result.Add(Square.At(currentSquare.Row - 1, currentSquare.Col + 2));
@@ -27,19 +27,7 @@ public class Knight : Piece
             result.Add(Square.At(currentSquare.Row + 2, currentSquare.Col + 1));
             result.Add(Square.At(currentSquare.Row + 2, currentSquare.Col - 1));
         }
-        else 
-        {
-            result.Add(Square.At(currentSquare.Row - 1, currentSquare.Col - 2));
-            result.Add(Square.At(currentSquare.Row - 1, currentSquare.Col + 2));
-            result.Add(Square.At(currentSquare.Row - 2, currentSquare.Col - 1));
-            result.Add(Square.At(currentSquare.Row - 2, currentSquare.Col + 1));
-            
-            result.Add(Square.At(currentSquare.Row + 1, currentSquare.Col + 2));
-            result.Add(Square.At(currentSquare.Row + 1, currentSquare.Col - 2));
-            result.Add(Square.At(currentSquare.Row + 2, currentSquare.Col + 1));
-            result.Add(Square.At(currentSquare.Row + 2, currentSquare.Col - 1));
-        }
-        
+               
         return result;       
     }
 }
